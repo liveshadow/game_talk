@@ -78,21 +78,22 @@ mtgdeckbuilder
 * The website itself.
 
 
-Sky Team
+The Sky Team
 --------------
 **Questions**
 
-1. 
-2. 
-3. 
+1. Getting the articles written about games - how to extract information from the articles to know what is being said.
+2. Currently it's up to the user to determine the sentiment analysis aspect?
+3. Is there a way to view the top 10 most popular games?
 
 **Must-Have Features**
 
-1. 
-2. 
-3. 
+1. Lots of images/graphics/screenshots - preview from article?
+2. Search by genre
+2. Stretch goal: include demo/trailer on the page
+3. Stretch goal: scrape the articles for sentiment analysis
 
 **Good Demo to Show?**
 
-* 
+* The website itself
 
