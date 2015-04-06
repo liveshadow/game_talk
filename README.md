@@ -54,4 +54,45 @@ Additionally, we are planning for this to be a one-page website: it will look a 
 **Stage Four:**
 
 * Make website more sophisticated looking: update graphics, polish interface
-* STRETCH GOAL: use sentiment analysis (Alchemy API) on Twitter results
+* STRETCH GOAL: use sentiment analysis (Alchemy API) on Twitter resultsHow are 
+
+Q&A
+===
+
+mtgdeckbuilder
+--------------
+**Questions**
+
+1. What do people search by? (Partial game names?)
+2. How are you going to combine the APIs to show the relevent data?
+3. Will you be using a database to keep all of this data?
+
+**Must-Have Features**
+
+1. Search by name of game OR publisher OR genre would be ideal
+2. Implementation of API based on keyword or exact phrases
+3. Nice UI. Potentially bootstrap?
+
+**Good Demo to Show?**
+
+* The website itself.
+
+
+Sky Team
+--------------
+**Questions**
+
+1. 
+2. 
+3. 
+
+**Must-Have Features**
+
+1. 
+2. 
+3. 
+
+**Good Demo to Show?**
+
+* 
+
