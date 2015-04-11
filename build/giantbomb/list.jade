@@ -1,28 +1,29 @@
-h2 Game Results
 each item in data.results
     .indented
         .row
             .col-md-6
                 if (item.image)
-                    img(src= item.image.small_url)
+                    .smallImage
+                        img(src= item.image.small_url)
                 br
             .col-md-3
                 h3
                  b=item.name
-                br
-                b= "Original Release Data:  "
-                = item.original_release_date
-                br
-                b= "Platforms: "
-                if (item.platforms.length > 0)
-                    each plat in item.platforms
-                        = plat.name+", " 
+                //- br
+                //- b= "Original Release Data:  "
+                //- = item.original_release_date
+                //- br
                 //- b= "Platforms: "
-                //- = <a href= plat.api_detail_url> plat.name +', '</a>
-                br
-                b= "Description: "
+                //- if (item.platforms)
+                //-     if (item.platforms.length > 0)
+                //-         each plat in item.platforms
+                //-             = plat.name+", " 
+                //- //- b= "Platforms: "
+                //- //- = <a href= plat.api_detail_url> plat.name +', '</a>
+                //- br
+                p
                 = item.deck
-                br
+                
                 //- h5.subtitle About
                 //- b= "State: "
                 //- = item.state_name
