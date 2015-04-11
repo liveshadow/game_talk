@@ -1,32 +1,5 @@
 var GameData = {
 
-//NOTE: original code references sunlight homework assignment UCDD Spring 2015
-    searchByZipcode: function(zipcode) {
-
-        // search legistalors by zipcode (default to Boulder, 80301)
-        // ref: https://sunlightlabs.github.io/congress/legislators.html
-
-        var name = "metroid"
-
-        $.get("http://www.giantbomb.com/api/search?api_key="+apikey.apikey_bomb+"&format=json&query="+ name +"&resources=game", function(data) {
-
-            console.log('got ' + data)
-            if (data.results){
-
-                $.get("/giantbomb/list.jade", function(template) {
-                    var html = jade.render(template, {
-                        data: data
-                    })
-                    console.log(html)
-                    $("#list").html(html)
-                })
-
-            }
-
-        })
-
-    },
-
    gamer: function(data) {
         $.get("/giantbomb/list.jade", function(template) {
             var html = jade.render(template, {
