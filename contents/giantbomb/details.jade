@@ -1,0 +1,30 @@
+.indented
+        .row
+            .col-md-6
+                if (data.image)
+                    .smallImage
+                        img(src= data.image.small_url)
+                br
+            .col-md-3
+                h3 #{data.name}
+                b= "Date of Original Release: "
+                = data.original_release_date
+                br
+                b= "Developers: "
+                if (data.developers)
+                    each dev in data.developers
+                        = dev.name + ", "
+                br
+                b= "Genres: "
+                if (data.genres)
+                    each gen in data.genres
+                        = gen.name + ", "
+                br
+                b= "Franchises: "
+                if (data.franchises)
+                    each fran in data.franchises
+                        = fran.name + ", "
+        .row    
+            b= "Description: "
+            if (data.deck)
+                |#{data.deck}
