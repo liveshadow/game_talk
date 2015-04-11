@@ -30,7 +30,7 @@ var TwitterData = {
             $.ajax({
                 url: "http://api.twitter.com/search/tweets",
                 type: "get",
-                data: {
+                data: { 
                     q: 'metroid',
                     json_callback: "TwitterData.gamer"
                 },
