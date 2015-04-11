@@ -2,23 +2,14 @@ h5 Search
 .row
     .col-md-8
         .form-group.form-group-default
-            label Name            
+            label Game Title            
             input#name.form-control(type='text', required='')                
     .col-md-4                         
         button.btn.btn-primary(onClick='GameData.searchByName($("#name").val())') Search
 
-
-.row
-    .col-md-8
-        .form-group.form-group-default
-            label Zipcode            
-            input#zipcode.form-control(type='text', required='')                
-    .col-md-4                         
-        button.btn.btn-primary(onClick='GameData.searchByZipcode($("#zipcode").val())') Search
-
-h5 Favorite Cities
+h5 Favorite Games
 ul
     li
-        a(href="#" onClick='GameData.searchByZipcode(80301)') Boulder
+        a(href="#" onClick='GameData.searchByName(Final Fantasy)') Final Fantasy
     li
-        a(href="#" onClick='GameData.searchByZipcode(80210)') Denver
+        a(href="#" onClick='GameData.searchByName(Metroid)') Metroid
