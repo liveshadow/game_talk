@@ -12,8 +12,7 @@ var server = http.createServer(app);
 var Twitter = require('twitter');
 
 //Will Regenerate New API Keys:
-app.data = {};
-app.data.client = new Twitter({
+var client = new Twitter({
    consumer_key: 'HUd2dbIQJNF0E29QeTvP4ZOST',
    consumer_secret: 'VW8DDSz7AoF2zKAAGxuDgN4gMeAGMZZptyGr3OjYRDTl7gm4mf',
    access_token_key: '931174363-IkBnF7yUBODRoLu82jxio8iQnKCDbKJZEh6OBYpT',

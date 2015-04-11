@@ -25,16 +25,12 @@ var TwitterData = {
     },
     
     searchByName: function(name) {
-
+        console.log("Hi!");
         $(document).ready(function(){    
             $.ajax({
                 url: "http://api.twitter.com/search/tweets",
                 type: "get",
                 data: {
-                    consumer_key: 'HUd2dbIQJNF0E29QeTvP4ZOST',
-                    consumer_secret: 'VW8DDSz7AoF2zKAAGxuDgN4gMeAGMZZptyGr3OjYRDTl7gm4mf',
-                    access_token_key: '931174363-IkBnF7yUBODRoLu82jxio8iQnKCDbKJZEh6OBYpT',
-                    access_token_secret: 'JTW6LS7zKs3sq8Li2eEmFgCV4PeFuc037Xpis0lkHtwZo', 
                     q: 'metroid',
                     json_callback: "TwitterData.gamer"
                 },
