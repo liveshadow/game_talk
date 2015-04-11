@@ -1,4 +1,4 @@
-var GameData = {
+var TwitterData = {
 
 //NOTE: original code references sunlight homework assignment UCDD Spring 2015
     searchByZipcode: function(zipcode) {
@@ -28,6 +28,27 @@ var GameData = {
     },
 
    gamer: function(data) {
+
+        var top_tweets = [];
+
+        console.log("BEGIN");
+        var client = app.get(app.data.client);
+        //This is the call to Twitter's RESTful API, Add Error Detection::
+        client.get('search/tweets', {q: 'metroid'}, function(error, tweets, response){
+            console.log("I'M IN YO");
+           
+            for (index in tweets['statuses']) {
+            
+                top_tweets.push({
+                    user_name: tweets['statuses'][index]['user'].screen_name,
+                    date: tweets['statuses'][index].created_at,
+                    text: tweets['statuses'][index].text
+                });
+            }
+
+            console.log(top_tweets);
+        });
+
         $.get("/giantbomb/list.jade", function(template) {
             var html = jade.render(template, {
                 data: data
@@ -42,15 +63,16 @@ var GameData = {
             $.ajax({
                 url: "http://api.giantbomb.com/search/",
                 type: "get",
-                data: {api_key : apikey.apikey_bomb, query: name, format: "jsonp", resources: "game", json_callback: "GameData.gamer"},
+                data: {api_key : apikey.apikey_bomb, query: name, format: "jsonp", resources: "game", json_callback: "TwitterData.gamer"},
                 dataType: "jsonp"
             });
+        
         });
     },
 
     load: function() {
 
-        $.get("/giantbomb/ui.jade", function(template) {
+        $.get("/twitter/ui.jade", function(template) {
             var html = jade.render(template)
             $("#ui").html(html)
         })

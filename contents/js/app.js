@@ -1,3 +1,7 @@
-$( "#data" ).on( "click", function( event ) {
+$( "#giantbomb" ).on( "click", function( event ) {
     GameData.load()
+})
+
+$( "#twitter" ).on( "click", function( event ) {
+    TwitterData.load()
 })

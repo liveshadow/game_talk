@@ -13,7 +13,7 @@ var GameData = {
             console.log('got ' + data)
             if (data.results){
 
-                $.get("/data/list.jade", function(template) {
+                $.get("/giantbomb/list.jade", function(template) {
                     var html = jade.render(template, {
                         data: data
                     })
@@ -28,7 +28,7 @@ var GameData = {
     },
 
    gamer: function(data) {
-        $.get("/data/list.jade", function(template) {
+        $.get("/giantbomb/list.jade", function(template) {
             var html = jade.render(template, {
                 data: data
             })
@@ -50,7 +50,7 @@ var GameData = {
 
     load: function() {
 
-        $.get("/data/ui.jade", function(template) {
+        $.get("/giantbomb/ui.jade", function(template) {
             var html = jade.render(template)
             $("#ui").html(html)
         })

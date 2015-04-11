@@ -1,6 +1,7 @@
 {
   "dependencies": {
-  	"express": "*"
+  	"express": "*",
+  	"twitter": "*"
   },
   "repository": "none"
 }

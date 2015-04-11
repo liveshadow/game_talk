@@ -5,7 +5,7 @@ h5 Search
             label Name            
             input#name.form-control(type='text', required='')                
     .col-md-4                         
-        button.btn.btn-primary(onClick='GameData.searchByName($("#name").val())') Search
+        button.btn.btn-primary(onClick='TwitterData.searchByName($("#name").val())') Search
 
 
 .row
@@ -14,11 +14,11 @@ h5 Search
             label Zipcode            
             input#zipcode.form-control(type='text', required='')                
     .col-md-4                         
-        button.btn.btn-primary(onClick='GameData.searchByZipcode($("#zipcode").val())') Search
+        button.btn.btn-primary(onClick='TwitterData.searchByZipcode($("#zipcode").val())') Search
 
 h5 Favorite Cities
 ul
     li
-        a(href="#" onClick='GameData.searchByZipcode(80301)') Boulder
+        a(href="#" onClick='TwitterData.searchByZipcode(80301)') Boulder
     li
-        a(href="#" onClick='GameData.searchByZipcode(80210)') Denver
+        a(href="#" onClick='TwitterData.searchByZipcode(80210)') Denver
