@@ -12,6 +12,11 @@ each item in data.results
                 br
                 b= "Original Release Data:  "
                 = item.original_release_date
+                br
+                b= "Platforms: "
+                if (item.platforms.length > 0)
+                    each plat in item.platforms
+                        = plat.name+", " 
                 //- b= "Platforms: "
                 //- = <a href= plat.api_detail_url> plat.name +', '</a>
                 br
