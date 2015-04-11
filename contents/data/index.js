@@ -1,4 +1,4 @@
-var data = {
+var GameData = {
 
 //NOTE: original code references sunlight homework assignment UCDD Spring 2015
     searchByZipcode: function(zipcode) {
@@ -27,22 +27,25 @@ var data = {
 
     },
 
+   gamer: function(data) {
+        $.get("/data/list.jade", function(template) {
+            var html = jade.render(template, {
+                data: data
+            })
+            $("#list").html(html);
+        })
+    },
+    
     searchByName: function(name) {
 
-        // search legistalors by name
-        // ref: https://sunlightlabs.github.io/congress/legislators.html
-
-        $.get("https://congress.api.sunlightfoundation.com/legislators?query=" + name, apikey, function(data) {
-
-            $.get("/data/list.jade", function(template) {
-                var html = jade.render(template, {
-                    data: data
-                })
-                $("#list").html(html)
-            })
-
-        })
-
+        $(document).ready(function(){    
+            $.ajax({
+                url: "http://api.giantbomb.com/search/",
+                type: "get",
+                data: {api_key : apikey.apikey_bomb, query: name, format: "jsonp", resources: "game", json_callback: "GameData.gamer"},
+                dataType: "jsonp"
+            });
+        });
     },
 
     load: function() {
@@ -51,10 +54,6 @@ var data = {
             var html = jade.render(template)
             $("#ui").html(html)
         })
-
-        // default search results
-        data.searchByZipcode('80303')
-
     }
 
 }
