@@ -6,14 +6,14 @@ var data = {
         // search legistalors by zipcode (default to Boulder, 80301)
         // ref: https://sunlightlabs.github.io/congress/legislators.html
 
-        var zipcode = zipcode || '80301'
+        var name = "metroid"
 
-        $.get("https://congress.api.sunlightfoundation.com/legislators/locate?zip=" + zipcode, apikey, function(data) {
+        $.get("http://www.giantbomb.com/api/search?api_key="+apikey.apikey_bomb+"&format=json&query="+ name +"&resources=game", function(data) {
 
             console.log('got ' + data)
             if (data.results){
 
-                $.get("/game_talk/data/list.jade", function(template) {
+                $.get("/data/list.jade", function(template) {
                     var html = jade.render(template, {
                         data: data
                     })
@@ -34,7 +34,7 @@ var data = {
 
         $.get("https://congress.api.sunlightfoundation.com/legislators?query=" + name, apikey, function(data) {
 
-            $.get("/game_talk/data/list.jade", function(template) {
+            $.get("/data/list.jade", function(template) {
                 var html = jade.render(template, {
                     data: data
                 })
@@ -47,7 +47,7 @@ var data = {
 
     load: function() {
 
-        $.get("/game_talk/data/ui.jade", function(template) {
+        $.get("/data/ui.jade", function(template) {
             var html = jade.render(template)
             $("#ui").html(html)
         })
