@@ -25,7 +25,7 @@ var TwitterData = {
     },
     
     searchByName: function(name) {
-
+        console.log("Hi!");
         $(document).ready(function(){    
             $.ajax({
                 url: "http://api.twitter.com/search/tweets",
