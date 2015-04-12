@@ -34,25 +34,25 @@
             if (gen.deck)
                 |#{gen.deck}
         .row
-            .col-md-6
-                h2 Twitter Results
-                each item in data.statuses
-                    .indented
-                        .row
-                            .col-md-6
-                                if (item.user)
-                                 b= "User Name: "
-                                  = item.user.screen_name
-                                br
-                                b= "Created At:  "
-                                = item.created_at
-                                br
-                                b= "Message: "
-                                = item.text
-                                br
-            .col-md-6
-                h2 Giant Bomb Game Review
-                if (gen.reviews)
-                    //if (gen.reviews.length > 0)
-                else
-                    | There are no reviews from Giant Bomb
+            h2 Twitter Results
+            b= "Trend: "
+            = data.sentiment
+            br
+            b
+            br
+            each item in data.statuses.slice(0, 5)
+                .indented
+                    .row
+                        .col-md-6
+                            if (item.user)
+                                b= "User Name: "
+                                = item.user.screen_name
+                            br
+                            b= "Created At:  "
+                            = item.created_at
+                            br
+                            b= "Message: "
+                            = item.text
+                            br
+                            b
+                            br
