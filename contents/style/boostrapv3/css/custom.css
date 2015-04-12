@@ -1,3 +1,14 @@
+body{
+	margin: 0px;
+	padding: 0px;
+}
+
+#clearme{
+	margin: 0px;
+	padding: 0px;
+	vertical-align: top;
+}
+
 .indented{
    padding-left: 30pt;
 }
@@ -19,4 +30,54 @@ h3{
 .smallImage img{
 	max-width: 100%;
 	max-height: 300px;
+}
+
+#gameTalkLogo{
+	color: white;
+	text-align: center;
+	background-color: #111;
+	margin: -20px;
+}
+
+#gameTalkLogo h1{
+	font-size: 5em;
+}
+
+#gameTalkLogo h2{
+	font-size: 1.4em;
+	padding: 2px;
+}
+
+#gameTalkLogo h3{
+	font-size: 1.2em;
+	padding: 2px;
+}
+
+#content{
+	margin-top: -10px;
+}
+
+#searchbox{
+	margin: 0 auto;
+	text-align: center;
+	background-color: #111;
+	padding: 20px;
+}
+
+#searchbox button{
+	margin-left: 10px;
+}
+
+#name{
+	width: 600px;
+}
+
+#ui{
+	background-color: #eee;
+	border: 1px solid #ccc;
+	padding: 10px;
+}
+
+#ui h5{
+	font-weight: bold;
 }

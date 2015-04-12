@@ -10,8 +10,11 @@ html(lang='en')
 
   body
 
-    div.container-fluid
-        h1 Game Talk
+    div#clearme
+        #gameTalkLogo
+         h1 Game Talk
+         h2 A video game sentiment analysis website
+         h3 Twitter | Giant Bomb | Alchemy API
 
         div#content
         include content
@@ -26,7 +29,6 @@ html(lang='en')
 
     // our app
     script(src="giantbomb/index.js")
-    script(src="twitter/index.js")
     
     // main app
     script(src="js/app.js")
