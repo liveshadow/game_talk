@@ -1,0 +1,58 @@
+.indented
+        .row
+            .col-md-6
+                if (gen.image)
+                    .smallImage
+                        img(src= gen.image.small_url)
+                br
+            .col-md-6
+                h3 #{gen.name}
+                b= "Date of Original Release: "
+                = gen.original_release_date
+                br
+                b= "Developers: "
+                if (gen.developers)
+                    each dev in gen.developers
+                        = dev.name + ", "
+                br
+                b= "Publishers: "
+                if (gen.publishers)
+                    each pub in gen.publishers
+                        = pub.name + ", "
+                br
+                b= "Genres: "
+                if (gen.genres)
+                    each BLAH in gen.genres
+                        = BLAH.name + ", "
+                br
+                b= "Franchises: "
+                if (gen.franchises)
+                    each fran in gen.franchises
+                        = fran.name + ", "
+        .row    
+            b= "Description: "
+            if (gen.deck)
+                |#{gen.deck}
+        .row
+            h2 Twitter Results
+            b= "Trend: "
+            = data.sentiment
+            br
+            b
+            br
+            each item in data.statuses.slice(0, 5)
+                .indented
+                    .row
+                        .col-md-6
+                            if (item.user)
+                                b= "User Name: "
+                                = item.user.screen_name
+                            br
+                            b= "Created At:  "
+                            = item.created_at
+                            br
+                            b= "Message: "
+                            = item.text
+                            br
+                            b
+                            br

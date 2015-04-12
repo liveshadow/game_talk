@@ -41,22 +41,38 @@ app.get('/tweet_search', function(req, res){
         }
          
          //Successful Call to Twitter:
-         else { 
+        else { 
              
              //Combines Text from All Tweets, Uses AlchemyAPI for Sentiment Analysis and Returns Pos/Neg:
-             var tweet_text= "";
-               
-             for(index in tweets['statuses']){ tweet_text += tweets["statuses"][index].text + " ";}
-               
-             alchemyapi.sentiment("text", tweet_text, {}, function(response) {
-                   console.log(response["docSentiment"]["type"] );
-                   tweets['sentiment'] = response["docSentiment"]["type"]; 
-                   res.send(tweets);
-             });
+            var tweet_text= "";
+            for(index in tweets['statuses']){ tweet_text += tweets["statuses"][index].text + " ";}
+
+        
+            alchemyapi.sentiment("text", tweet_text, {}, function(response) {
+                   //console.log(response['docSentiment']['type'] );
+                    if (response['docSentiment'])
+                    {    
+                        if (response['docSentiment']['type'])
+                        {
+                            tweets['sentiment'] = response['docSentiment']['type']; 
+                        }
+                        else
+                        {
+                            tweets['sentiment'] = "none"
+                        }
+                        res.send(tweets);
+                    }
+                    else
+                    {
+                        tweets['sentiment'] = "none"
+                        res.send(tweets);
+                    }
+                    
+            });
              
              //Fix scoping issue with tweets['sentiment'] not being permanent in alchemyapi method
              //res.send(tweets) 
-         }
+        }
     });
 });
 
