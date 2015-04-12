@@ -1,56 +1,18 @@
-h2 Game Results
-each item in data.results
+h2 Twitter Results
+each item in data.statuses
     .indented
         .row
             .col-md-6
-                if (item.image)
-                    img(src= item.image.small_url)
+                if (item.user)
+                 b= "User Name: "
+                  = item.user.screen_name
                 br
-            .col-md-3
-                h3
-                 b=item.name
+                b= "Created At:  "
+                = item.created_at
                 br
-                b= "Original Release Data:  "
-                = item.original_release_date
-                //- b= "Platforms: "
-                //- = <a href= plat.api_detail_url> plat.name +', '</a>
+                b= "Message: "
+                = item.text
                 br
-                b= "Description: "
-                = item.deck
+                b
                 br
-                //- h5.subtitle About
-                //- b= "State: "
-                //- = item.state_name
-                //- br    
-                //- b= "Chamber: "
-                //- = item.chamber
-                //- br
-                //- b= "Party: "
-                //- = item.party
-                //- br
-                //- b= "Term start: "
-                //- = item.term_start
-                //- br
-                //- b= "Term end: "
-                //- = item.term_end
-                //- br
-            //- .col-md-3
-                //- h5.subtitle Contact
-                //- if item.website    
-                //-     a(href= item.website)
-                //-         = "Website"
-                //-     br            
-                //- b= "Email: "
-                //- = item.oc_email
-                //- br
-                //- b= "Phone: "
-                //- = item.phone
-                //- br
-                //- b= "Office: "
-                //- = item.office
-                //- br
-
-    //pre= JSON.stringify(item)
-
-//h3 Raw data
-//pre= JSON.stringify(data, null, ' ')
+          

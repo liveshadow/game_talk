@@ -1,42 +1,29 @@
 var TwitterData = {
 
-   gamer: function(error, tweets, response) {
+   gamer: function(data) {
 
-        var top_tweets = [];
-        //This is the call to Twitter's RESTful API, Add Error Detection::
-           
-        for (index in tweets['statuses']) {
-        
-            top_tweets.push({
-                user_name: tweets['statuses'][index]['user'].screen_name,
-                date: tweets['statuses'][index].created_at,
-                text: tweets['statuses'][index].text
-            });
-        }
-
-        console.log(top_tweets);
-    
-        // $.get("/twitter/list.jade", function(template) {
-        //     var html = jade.render(template, {
-        //         data: data
-        //     })
-        //     $("#list").html(html);
-        // })
+      $.get("/twitter/list.jade", function(template) {
+          var html = jade.render(template, {
+              data: data
+          })
+        $("#list").html(html);
+      })
+       
     },
     
     searchByName: function(name) {
-        console.log("Hi!");
+        console.log("Making AJAX Call to /tweet_search (Replace with better way of referencing self)");
         $(document).ready(function(){    
-            $.ajax({
-                url: "http://api.twitter.com/search/tweets",
+            var test = $.ajax({
+                url: "http://web-design-erikkierstead.c9.io/tweet_search", // our heroku address will go here until more clever way of referencing self is found ;) ;D
                 type: "get",
-                data: { 
-                    q: 'metroid',
-                    json_callback: "TwitterData.gamer"
+                data: {
+                    q: name
                 },
-                dataType: "jsonp",
+                dataType: "json", //was jsonp
+                success: function(data) { TwitterData.gamer(data) }, 
+                error: function(){ console.log("Error in Ajax Call (oh noes!)"); }
             });
-        
         });
     },
 
