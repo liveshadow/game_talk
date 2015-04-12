@@ -35,7 +35,12 @@
                 |#{gen.deck}
         .row
             h2 Twitter Results
-            each item in data.statuses
+            b= "Trend: "
+            = data.sentiment
+            br
+            b
+            br
+            each item in data.statuses.slice(0, 5)
                 .indented
                     .row
                         .col-md-6
@@ -48,3 +53,6 @@
                             br
                             b= "Message: "
                             = item.text
+                            br
+                            b
+                            br

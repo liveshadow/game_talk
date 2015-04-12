@@ -8,6 +8,13 @@ var path = require('path');
 var app = express();
 var server = http.createServer(app);
 
+
+//Alchemy API Shenanigans:
+var consolidate = require('consolidate');
+var AlchemyAPI = require('./alchemyapi');
+var alchemyapi = new AlchemyAPI();
+
+
 //Twitter Module:
 var Twitter = require('twitter');
 
@@ -21,21 +28,36 @@ var client = new Twitter({
 
 app.use(express.static(__dirname + "/build"));
 
+//Available for Ajax call on front end, then conducts Twitter RESTful API Call
+//which then uses AlchemyAPI for Sentiment Analysis and Returns JSON:
 app.get('/tweet_search', function(req, res){
  
-    var query = req.query['q'] || "(>^_^)> ---- o PEW PEW PEW PEW!!";
-    
-    client.get('search/tweets', {q: query}, function(error, tweets, response){
+    var query = req.query['q'] || "";
    
-            if(error) {
-                //res.send({statuses:})
-                //return an object with statuses with blank / error values:
-            }
+    client.get('search/tweets', {q: query, count:1}, function(error, tweets, response){
+   
+        if(error) {
+            //return an object with statuses with blank / error values:
+        }
          
-            //on Success:
-            else { res.send(tweets) }
+         //Successful Call to Twitter:
+         else { 
+             
+             //Combines Text from All Tweets, Uses AlchemyAPI for Sentiment Analysis and Returns Pos/Neg:
+             var tweet_text= "";
+               
+             for(index in tweets['statuses']){ tweet_text += tweets["statuses"][index].text + " ";}
+               
+             alchemyapi.sentiment("text", tweet_text, {}, function(response) {
+                   console.log(response["docSentiment"]["type"] );
+                   tweets['sentiment'] = response["docSentiment"]["type"]; 
+                   res.send(tweets);
+             });
+             
+             //Fix scoping issue with tweets['sentiment'] not being permanent in alchemyapi method
+             //res.send(tweets) 
+         }
     });
-
 });
 
 app.listen(process.env.PORT || 8000);
