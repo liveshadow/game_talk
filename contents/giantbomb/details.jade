@@ -7,8 +7,12 @@
                 br
             .col-md-6
                 h3 #{gen.name}
-                b= "Date of Original Release: "
-                = gen.original_release_date
+                if (gen.expected_release_day)
+                    b= "Date of Expected Release Date: "
+                    = gen.expected_release_day + " " + gen.expected_release_month+ " "+gen.expected_release_year
+                else
+                    b= "Date of Original Release: "
+                    = gen.original_release_date
                 br
                 b= "Developers: "
                 if (gen.developers)
@@ -40,19 +44,22 @@
             br
             b
             br
-            each item in data.statuses.slice(0, 5)
-                .indented
-                    .row
-                        .col-md-6
-                            if (item.user)
-                                b= "User Name: "
-                                = item.user.screen_name
-                            br
-                            b= "Created At:  "
-                            = item.created_at
-                            br
-                            b= "Message: "
-                            = item.text
-                            br
-                            b
-                            br
+            if (data.statuses > 0)
+                each item in data.statuses.slice(0, 5)
+                    .indented
+                        .row
+                            .col-md-6    
+                                if (item.user)
+                                    b= "User Name: "
+                                    = item.user.screen_name
+                                br
+                                if (item.created_at)    
+                                    b= "Created At:  "
+                                    = item.created_at
+                                br
+                                if (item.text)    
+                                    b= "Tweet: "
+                                    = item.text
+                                br
+            else
+                | There are no current tweets about the game
