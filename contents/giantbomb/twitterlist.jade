@@ -1,0 +1,18 @@
+h2 Twitter Results
+each item in data.statuses
+    .indented
+        .row
+            .col-md-6
+                if (item.user)
+                 b= "User Name: "
+                  = item.user.screen_name
+                br
+                b= "Created At:  "
+                = item.created_at
+                br
+                b= "Message: "
+                = item.text
+                br
+                b
+                br
+          
