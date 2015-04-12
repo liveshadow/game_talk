@@ -34,7 +34,7 @@ app.get('/tweet_search', function(req, res){
  
     var query = req.query['q'] || "";
    
-    client.get('search/tweets', {q: query, count:1}, function(error, tweets, response){
+    client.get('search/tweets', {q: query, count:50}, function(error, tweets, response){
    
         if(error) {
             //return an object with statuses with blank / error values:
@@ -51,29 +51,12 @@ app.get('/tweet_search', function(req, res){
         
             alchemyapi.sentiment("text", tweet_text, {}, function(response) {
                 
-                if(response["docSentiment"]["type"]) { tweets["sentiment"] = response["docSentiment"]["type"]; }
-                   //console.log(response['docSentiment']['type'] );
-                    
-                    
-                    /*
-                    
-                    if (response['docSentiment'])
-                    {    
-                        if (response['docSentiment']['type'])
-                        {
-                            tweets['sentiment'] = response['docSentiment']['type']; 
-                        }
-                        else
-                        {
-                            tweets['sentiment'] = "none"
-                        }
-                        res.send(tweets);
+                if(response.hasOwnProperty("sentiment")) { 
+                    if(response["sentiment"].hasOwnProperty("type")) {
+                        tweets["sentiment"] = response["docSentiment"]["type"];
                     }
-                    else
-                    {
-                        tweets['sentiment'] = "none"
-                        res.send(tweets);
-                    }*/
+                }
+                   
                     res.send(tweets);
             });
         
