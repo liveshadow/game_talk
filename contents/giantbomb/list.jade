@@ -9,7 +9,7 @@ each item in data.results
             .col-md-3
                 h3
                     b
-                    <a href="#" onClick='GameData.gameDetails(#{item.id})'> #{item.name} </a>
+                     a(href="#" onClick='GameData.gameDetails("#{item.id}","#{item.name}")') #{item.name}
                 //- br
                 //- b= "Original Release Data:  "
                 //- = item.original_release_date
