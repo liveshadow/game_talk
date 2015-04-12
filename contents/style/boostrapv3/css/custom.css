@@ -43,6 +43,11 @@ h3{
 	font-size: 5em;
 }
 
+#gameTalkLogo a{
+	color: white;
+	text-decoration : none;
+}
+
 #gameTalkLogo h2{
 	font-size: 1.4em;
 	padding: 2px;
@@ -76,8 +81,32 @@ h3{
 	background-color: #eee;
 	border: 1px solid #ccc;
 	padding: 10px;
+	margin: 20px;
+	min-height: 150px;
 }
 
 #ui h5{
 	font-weight: bold;
+}
+
+#list{
+	padding: 20px;
+}
+
+#list p{
+	padding: 8px;
+}
+
+#list img{
+	border: 2px solid #111;
+}
+
+#list .col-md-3 a{
+	text-align: center;
+}
+
+#list .row{
+	border-bottom: 3px dashed #ccc;
+	padding: 20px;
+	margin: 20px 5px;
 }
