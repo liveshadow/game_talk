@@ -23,10 +23,20 @@ app.use(express.static(__dirname + "/build"));
 
 app.get('/tweet_search', function(req, res){
  
-    var query = req.query['q'] || "(>^_^)> ---- o PEW PEW PEW PEW!!";
+    var query = req.query['q'] || "";
+
+    //tack on sentiment analysis onto the json already being returned to the ajax call from search button
+    //it would look like tweets['sentiment'] = results_of_sentiment_analysis 
+    // --or--
+    //it could add onto tweets["statuses"][index]["sentiment"] = results_of_sentiment_analysis --IF-- 
+    //we choose to analyze each tweet individually
     
-    client.get('search/tweets', {q: query}, function(error, tweets, response){
+    //include 
+    
+    client.get('search/tweets', {q: query, count:50}, function(error, tweets, response){
    
+          console.log(tweets);
+         
             if(error) {
                 //res.send({statuses:})
                 //return an object with statuses with blank / error values:
@@ -35,7 +45,6 @@ app.get('/tweet_search', function(req, res){
             //on Success:
             else { res.send(tweets) }
     });
-
 });
 
 app.listen(process.env.PORT || 8000);
