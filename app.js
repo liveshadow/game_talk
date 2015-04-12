@@ -47,9 +47,16 @@ app.get('/tweet_search', function(req, res){
             var tweet_text= "";
             for(index in tweets['statuses']){ tweet_text += tweets["statuses"][index].text + " ";}
 
+            tweets["sentiment"] = "None";
         
             alchemyapi.sentiment("text", tweet_text, {}, function(response) {
+                
+                if(response["docSentiment"]["type"]) { tweets["sentiment"] = response["docSentiment"]["type"]; }
                    //console.log(response['docSentiment']['type'] );
+                    
+                    
+                    /*
+                    
                     if (response['docSentiment'])
                     {    
                         if (response['docSentiment']['type'])
@@ -66,9 +73,10 @@ app.get('/tweet_search', function(req, res){
                     {
                         tweets['sentiment'] = "none"
                         res.send(tweets);
-                    }
-                    
+                    }*/
+                    res.send(tweets);
             });
+        
              
              //Fix scoping issue with tweets['sentiment'] not being permanent in alchemyapi method
              //res.send(tweets) 
