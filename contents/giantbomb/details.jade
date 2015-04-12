@@ -15,6 +15,11 @@
                     each dev in gen.developers
                         = dev.name + ", "
                 br
+                b= "Publishers: "
+                if (gen.publishers)
+                    each pub in gen.publishers
+                        = pub.name + ", "
+                br
                 b= "Genres: "
                 if (gen.genres)
                     each BLAH in gen.genres
@@ -29,38 +34,17 @@
             if (gen.deck)
                 |#{gen.deck}
         .row
-            .col-md-6
-                h2 Twitter Results
-                each item in data.statuses
-                    .indented
-                        .row
-                            .col-md-6
-                                if (item.user)
-                                 b= "User Name: "
-                                  = item.user.screen_name
-                                br
-                                b= "Created At:  "
-                                = item.created_at
-                                br
-                                b= "Message: "
-                                = item.text
-                                br
-            .col-md-6
-                h2 Giant Bomb Game Review
-                if (rev.length > 0)    
-                    each art in rev
-                        .indented
-                            .row
-                                .col-md-6
-                                    if (art.reviewer)
-                                     b= "Author Name: "
-                                      = art.reviewer
-                                    br
-                                    b= "Published:  "
-                                    = art.publish_date
-                                    br
-                                    b= "Brief: "
-                                    = art.deck
-                                    br
-                else
-                    | There are no reviews from Giant Bomb
+            h2 Twitter Results
+            each item in data.statuses
+                .indented
+                    .row
+                        .col-md-6
+                            if (item.user)
+                                b= "User Name: "
+                                = item.user.screen_name
+                            br
+                            b= "Created At:  "
+                            = item.created_at
+                            br
+                            b= "Message: "
+                            = item.text

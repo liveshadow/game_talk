@@ -15,6 +15,11 @@
                     each dev in gen.developers
                         = dev.name + ", "
                 br
+                b= "Publishers: "
+                if (gen.publishers)
+                    each pub in gen.publishers
+                        = pub.name + ", "
+                br
                 b= "Genres: "
                 if (gen.genres)
                     each BLAH in gen.genres
@@ -47,20 +52,7 @@
                                 br
             .col-md-6
                 h2 Giant Bomb Game Review
-                if (rev.length > 0)    
-                    each art in rev
-                        .indented
-                            .row
-                                .col-md-6
-                                    if (art.reviewer)
-                                     b= "Author Name: "
-                                      = art.reviewer
-                                    br
-                                    b= "Published:  "
-                                    = art.publish_date
-                                    br
-                                    b= "Brief: "
-                                    = art.deck
-                                    br
+                if (gen.reviews)
+                    //if (gen.reviews.length > 0)
                 else
                     | There are no reviews from Giant Bomb
