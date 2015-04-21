@@ -30,7 +30,7 @@ Additionally, we are planning for this to be a one-page website: it will look a 
 **Responsibilities:**
 
 * Olivia Abrant - Working with OAuth and Twitter
-* Erik Eakins - Working with OAuth and GamesRadar
+* Erik Eakins - Working with OAuth and GiantBomb after GamesRadar dropped that damn ball
 * Andrea Sassu - Building the front end (layout, CSS)
 
 ##Milestones##
