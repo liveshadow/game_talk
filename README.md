@@ -9,6 +9,8 @@ UCDD2 Final Project: Game Talk
 
 ##About##
 
+**URL:** https://game-talk.herokuapp.com/
+
 **Overview:** Create a website that, given the name of a recent video game, pulls news, reviews, and tweets about the game for market feedback purposes.
 
 **APIs:**
