@@ -1,7 +1,7 @@
 var GameData = {
 
     details: function(tweetData, genData) {
-        console.log(genData)
+        console.log(genData.results.images)
         $.get("/giantbomb/details.jade", function(template) {
             var html = jade.render(template, {
                 gen: genData.results,
