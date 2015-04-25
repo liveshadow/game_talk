@@ -70,10 +70,15 @@ h3{
 	background-color: #07598C;
 	padding: 20px;
 	border-bottom: 10px double white;
+	color: #000;
 }
 
 #searchbox button{
 	margin-left: 10px;
+}
+
+#searchbox input{
+	color: #000;
 }
 
 #name{
