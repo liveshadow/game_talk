@@ -77,6 +77,10 @@ h3{
 	margin-left: 10px;
 }
 
+#searchbox input{
+	color: #000;
+}
+
 #name{
 	width: 600px;
 }
