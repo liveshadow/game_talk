@@ -14,7 +14,7 @@ var GameData = {
     tweets: function(genData, game_name) {
         $(document).ready(function(){    
             var test = $.ajax({
-                url: "http://localhost:8000/tweet_search", // our heroku address will go here until more clever way of referencing self is found ;) ;D
+                url: "https://game-talk.herokuapp.com/tweet_search", // our heroku address will go here until more clever way of referencing self is found ;) ;D
                 type: "get",
                 data: {
                     q: game_name
