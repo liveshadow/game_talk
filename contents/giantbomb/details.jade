@@ -37,6 +37,12 @@
             b= "Description: "
             if (gen.deck)
                 |#{gen.deck}
+        <marquee>
+        each im in gen.images
+           if (im.screen_url)
+               if(im.tags.substring(0,11) == "Screenshots")
+                   img(src= im.screen_url)
+        </marquee>
         .row
             h2 Twitter Results
             b= "Trend: "
